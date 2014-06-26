@@ -9,7 +9,7 @@ scalaVersion := "2.11.1"
 libraryDependencies ++= Seq(
     javaJdbc,
     javaJpa,
-    "org.springframework" % "spring-context" % "3.2.2.RELEASE",
+    "org.springframework" % "spring-context" % "4.0.5.RELEASE",
     "javax.inject" % "javax.inject" % "1",
     "org.springframework.data" % "spring-data-jpa" % "1.6.0.RELEASE",
     "org.springframework" % "spring-expression" % "4.0.5.RELEASE",

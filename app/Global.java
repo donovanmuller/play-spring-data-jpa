@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.orm.hibernate3.HibernateExceptionTranslator;
 import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import play.Application;
 import play.GlobalSettings;
 
@@ -69,6 +70,7 @@ public class Global extends GlobalSettings {
      */
     @Configuration
     @EnableJpaRepositories("models")
+    @EnableTransactionManagement(proxyTargetClass = true)
     public static class SpringDataJpaConfiguration {
 
         @Bean

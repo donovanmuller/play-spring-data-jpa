@@ -3,7 +3,10 @@ package controllers;
 import models.Child;
 import models.Person;
 import models.PersonRepository;
-import play.mvc.*;
+import org.springframework.transaction.annotation.Transactional;
+import play.Logger;
+import play.mvc.Controller;
+import play.mvc.Result;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -24,6 +27,8 @@ public class Application extends Controller {
         this.personRepository = personRepository;
     }
 
+    @Transactional
+    // <-- Let Spring manage our transaction boundaries. See @EnableTransactionManagement on SpringDataJpaConfiguration. You could add this annotation at class level as well, which means all controller actions will either participate in or start new transactions.
     public Result index() {
 
         final Person person = new Person();
@@ -40,6 +45,8 @@ public class Application extends Controller {
 
         // For retrievedPerson the children collection is not initialized because of a LIE.
         final Person retrievedPerson = personRepository.findOne(savedPerson.id);
+        Logger.info("Got person, no LIE's: {} {}", retrievedPerson.firstname, retrievedPerson.surname);
+
 
         return ok(views.html.index.render("Found id: " + retrievedPerson.id + " of person/people with " + retrievedPerson.children.size() + " children"));
     }
