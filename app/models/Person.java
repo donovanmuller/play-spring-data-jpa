@@ -1,8 +1,8 @@
 package models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This declares a model object for persistence usage. Model objects are generally anaemic structures that represent
@@ -19,4 +19,7 @@ public class Person {
     public String firstname;
 
     public String surname;
+
+    @OneToMany(mappedBy = "person", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
+    public List<Child> children = new ArrayList<>();
 }

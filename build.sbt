@@ -2,17 +2,17 @@ name := "play-spring-data-jpa"
 
 version := "1.0-SNAPSHOT"
 
-playJavaSettings
+lazy val root = (project in file(".")).enablePlugins(PlayJava)
 
-ebeanEnabled := false
+scalaVersion := "2.11.1"
 
 libraryDependencies ++= Seq(
-    javaCore,
+    javaJdbc,
     javaJpa,
     "org.springframework" % "spring-context" % "3.2.2.RELEASE",
     "javax.inject" % "javax.inject" % "1",
-    "org.springframework.data" % "spring-data-jpa" % "1.3.2.RELEASE",
-    "org.springframework" % "spring-expression" % "3.2.2.RELEASE",
-    "org.hibernate" % "hibernate-entitymanager" % "3.6.10.Final",
+    "org.springframework.data" % "spring-data-jpa" % "1.6.0.RELEASE",
+    "org.springframework" % "spring-expression" % "4.0.5.RELEASE",
+    "org.hibernate" % "hibernate-entitymanager" % "4.3.5.Final",
     "org.mockito" % "mockito-core" % "1.9.5" % "test"
 )
