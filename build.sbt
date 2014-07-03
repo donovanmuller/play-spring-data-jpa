@@ -14,5 +14,8 @@ libraryDependencies ++= Seq(
     "org.springframework.data" % "spring-data-jpa" % "1.6.0.RELEASE",
     "org.springframework" % "spring-expression" % "4.0.5.RELEASE",
     "org.hibernate" % "hibernate-entitymanager" % "4.3.5.Final",
-    "org.mockito" % "mockito-core" % "1.9.5" % "test"
+    "org.mockito" % "mockito-core" % "1.9.5" % "test",
+    "com.edulify" %% "play-hikaricp" % "1.3.1"
 )
+
+resolvers += Resolver.url("Edulify Repository", url("http://edulify.github.io/modules/releases/"))(Resolver.ivyStylePatterns)
